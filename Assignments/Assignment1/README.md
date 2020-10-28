@@ -4,3 +4,13 @@
  are Located at '/_docs/'
 
 Options A and C are solved in this repo.
+
+<br/>
+
+Fresh concepts that are introduced in this Assignment:
+ - Project Structure
+ - Nested Functions
+ - Closures
+ - Filters 
+ - Sets
+ - .. and Some other useful internal functions

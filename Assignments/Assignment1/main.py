@@ -1,5 +1,7 @@
 from Assignments.Assignment1.Options.OptionA.main import A
+from Assignments.Assignment1.Options.OptionA.simplified import ASimplified
 from Assignments.Assignment1.Options.OptionC.main import C
+from Assignments.Assignment1.Options.OptionC.simplified import CSimplified
 
 # a Set of Menu Keys and Values
 keys = {"main": "", "second": ""}
@@ -27,7 +29,8 @@ def option_a():
         return {
             'n': A.digits_counter,
             's': A.digits_sum,
-            'f': A.fibonacci_check,
+            'f': ASimplified.fibonacci_check,
+            # 'f': A.fibonacci_check,
             'p': A.prime_check,
             'q': main_switch
         }[x]
@@ -50,7 +53,8 @@ def option_c():
     # Sub-Menu C's Switch
     def c_switch(x):
         return {
-            'p': C.gcd_prime,
+            # 'p': C.gcd_prime,
+            'p': CSimplified.gcd_prime,
             'l': C.gcd_fibonacci,
             'q': main_switch
         }[x]

@@ -26,7 +26,7 @@ class A:
             _sum = _sum + (_number % 10)
             _number = _number // 10
 
-        print('the Sum of Digits of ', number, 'is equal to ', _sum)
+        print('the Sum of Digits of ', number, 'is equal to ', int(_sum))
         return sum
 
     # Accepts argument 'number' (int), checks if 'number' is part of the Fibonacci Sequence.

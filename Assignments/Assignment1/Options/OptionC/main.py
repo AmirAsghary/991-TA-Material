@@ -1,14 +1,19 @@
 import math
-
+from functools import reduce
 
 # Appends the divisors of 'number' to the 'div_list' list.
+
+
 def divs_lister(number, div_list):
     i = 1
-    while i <= number:
+    while i <= number / 2:
         if number % i == 0:
             div_list.append(i)
+            print(div_list)
         i = i + 1
-
+    else:
+        div_list.append(number)
+    # div_list = set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0))) #really fast!
     return 1
 
 
@@ -61,6 +66,7 @@ class C:
 
         def filter_divisors(third_number):
             def _filter(div):
+                print(div)
                 div_divisors = []
                 divs_lister(div, div_divisors)
                 for div in div_divisors:
@@ -69,10 +75,6 @@ class C:
                 return True
 
             return _filter
-
-        def perfect_check(x):
-            s = int(math.sqrt(x))
-            return s * s == x
 
         if a < 1 or b < 1 or c < 1:
             print('\033[91m\nINCORRECT Values. Inputs should be Positive numbers!\033[0m')
@@ -84,22 +86,30 @@ class C:
 
         fibs = []
 
-        for i in range(a + 1, b):
-            if perfect_check(5 * i * i + 4) or perfect_check(5 * i * i - 4):
-                fibs.append(i)
-            if len(fibs) == 2:
-                break
+        x = 0
+        y = 1
+        z = 1
 
-        _c = fibs[0] + fibs[1]
-        while _c < b:
-            fibs.append(_c)
-            _c = fibs[len(fibs) - 2] + fibs[len(fibs) - 1]
+        while z < a:
+            x = y
+            y = z
+            z = x + y
+
+        while z < b:
+            fibs.append(z)
+            x = y
+            y = z
+            z = x + y
+
+        print(fibs)
 
         _div_filter = filter_divisors(c)
 
         filtered = []
 
         filtered.extend(filter(_div_filter, fibs))
+
+        print(filtered)
 
         if len(filtered) == 0:
             print('\nNo Fibonacci number exists between', a, '&', b, 'that are relatively prime to', c)
