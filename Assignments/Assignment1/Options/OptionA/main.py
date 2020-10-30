@@ -1,27 +1,29 @@
-import math
-
-
 class A:
 
     # Accepts argument 'number' (int), prints and returns the amount of digits of 'number'.
     @staticmethod
     def digits_counter(number):
         count = 0
-        _number = math.fabs(number)
+        _number = number
+        if number < 0:
+            _number = -number
         while _number > 0:
             count = count + 1
             _number = _number // 10
+            print(_number)
 
         print(number, 'has', count, 'digits.')
         return count
-        # return int(math.log10(_number)) + 1
+        # print(int(math.log10(_number)) + 1)
         # return len(str(_number))
 
     # Accepts argument 'number' (int), prints and returns the sum of digits of 'number'.
     @staticmethod
     def digits_sum(number):
         _sum = 0
-        _number = math.fabs(number)
+        _number = number
+        if number < 0:
+            _number = -number
         while _number != 0:
             _sum = _sum + (_number % 10)
             _number = _number // 10
@@ -75,10 +77,10 @@ class A:
             print('0 is not a Prime number.')
             return -1
 
-        for i in range(2, number):
+        for i in range(2, number / 2):
             if (number % i) == 0:
                 print(number, "is not a Prime number.")
-                return -1
+                break
         else:
             print(number, "is a Prime number.")
             return 1

@@ -1,15 +1,12 @@
-import math
 from functools import reduce
 
+
 # Appends the divisors of 'number' to the 'div_list' list.
-
-
 def divs_lister(number, div_list):
     i = 1
     while i <= number / 2:
         if number % i == 0:
             div_list.append(i)
-            print(div_list)
         i = i + 1
     else:
         div_list.append(number)
@@ -29,7 +26,6 @@ class C:
                 if third_number % div == 0:
                     return False
                 return True
-
             return _filter
 
         if a < 1 or b < 1 or c < 1:
@@ -66,7 +62,6 @@ class C:
 
         def filter_divisors(third_number):
             def _filter(div):
-                print(div)
                 div_divisors = []
                 divs_lister(div, div_divisors)
                 for div in div_divisors:
@@ -78,10 +73,6 @@ class C:
 
         if a < 1 or b < 1 or c < 1:
             print('\033[91m\nINCORRECT Values. Inputs should be Positive numbers!\033[0m')
-            return -1
-
-        if math.fabs(b - a) < 2:
-            print('There are no whole numbers between the Upper and Lower bounds of', [a, b], '.')
             return -1
 
         fibs = []
